@@ -63,22 +63,27 @@ public class ChartSelectionDetail: NSObject
             return false
         }
         
-        if (object!.value != _value)
-        {
+        if let object = object as? ChartSelectionDetail {
+        
+            if (object.value != _value)
+            {
+                return false
+            }
+            
+            if (object.dataSetIndex != _dataSetIndex)
+            {
+                return false
+            }
+            
+            if (object.dataSet !== _dataSet)
+            {
+                return false
+            }
+            
+            return true
+        } else {
             return false
         }
-        
-        if (object!.dataSetIndex != _dataSetIndex)
-        {
-            return false
-        }
-        
-        if (object!.dataSet !== _dataSet)
-        {
-            return false
-        }
-        
-        return true
     }
 }
 
